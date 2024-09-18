@@ -5,10 +5,8 @@ import {
 } from 'react-router-dom'
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
-import Produto from './pages/Produto'
-import PaginaDeExemplo from './pages/PaginaDeExemplo'
 import Usuarios from './pages/Usuarios'
-import GerenciarUsuarios from './pages/Usuarios/Gerenciar'
+
 
 export const Rotas = () => {
 
@@ -17,35 +15,24 @@ export const Rotas = () => {
             <Routes>
 
                 <Route
+                    // Pagina de login
                     path='/'
                     element={<Login />}
                 />
+
                 <Route
+                    // Pagina de Menu
                     path='/dashboard'
                     element={<Dashboard />}
                 />
-                <Route
-                    path='/produto/:id'
-                    element={<Produto />}
-                />
+
 
                 <Route
+                    // Pagina de Menu
                     path='/usuarios'
                     element={<Usuarios />}
                 />
 
-                <Route
-                    path='/usuarios/:id'
-                    element={<GerenciarUsuarios />}
-                />
-
-
-
-
-                <Route
-                    path='/exemplo'
-                    element={<PaginaDeExemplo />}
-                />
 
             </Routes>
         </BrowserRouter>

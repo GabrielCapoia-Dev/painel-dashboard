@@ -28,7 +28,7 @@ export default function Login() {
                 senha: { value: string }
             }
 
-
+            // Rota da API do back
             axios.post('http://localhost:3001/login',
                 {
                     email: target.email.value,
@@ -36,18 +36,16 @@ export default function Login() {
                 }
             ).then((resposta) => {
 
-                console.log('deu bao')
+                console.log('deu bom')
                 console.log(resposta.data)
 
-
-                //Salva no storage do navegador os dados
+                // Salva no storage do navegador os dados
                 localStorage.setItem(
-                    'americanos.token',
-                     JSON.stringify(resposta.data)
-                    )
+                    'casaDaPaz.token',
+                    JSON.stringify(resposta.data)
+                )
 
                 navigate('/dashboard')
-
 
             }).catch((erro) => {
                 console.log('deu ruim')
@@ -56,38 +54,26 @@ export default function Login() {
                 setToast(true)
             })
 
-
-
         } else {
             refForm.current.classList.add('was-validated')
         }
 
-    }, [])
+    }, [navigate])
 
     return (
         <>
-            <Loading
-                visible={loading}
-            />
+            <Loading visible={loading} />
             <Toast
                 show={toast}
                 message='Dados inválidos'
                 colors='danger'
                 onClose={() => { setToast(false) }}
             />
-            <div
-                className={styles.main}
-            >
-                <div
-                    className={styles.border}
-                >
-                    <div
-                        className='d-flex flex-column align-items-center'
-                    >
-                        <h1 className='text-primary'>Login</h1>
-                        <p
-                            className='text-secondary'
-                        >
+            <div className={styles['background-gradient']}>
+                <div className={styles.border}>
+                    <div className='d-flex flex-column align-items-center'>
+                        <h1 className={styles.textPrimary}>Login</h1>
+                        <p className='text-secondary'>
                             Preencha os campos para logar
                         </p>
                     </div>
@@ -95,18 +81,13 @@ export default function Login() {
                     <hr />
 
                     <form
-                        className='needs-validation align-items-center'
+                        className='needs-validation'
                         noValidate
                         onSubmit={submitForm}
                         ref={refForm}
                     >
-                        <div
-                            className='col-md-12'
-                        >
-                            <label
-                                htmlFor='email'
-                                className='form-label'
-                            >
+                        <div className='mb-3'>
+                            <label htmlFor='email' className='form-label'>
                                 Email
                             </label>
                             <input
@@ -116,19 +97,13 @@ export default function Login() {
                                 id='email'
                                 required
                             />
-                            <div
-                                className='invalid-feedback'
-                            >
+                            <div className='invalid-feedback'>
                                 Por favor digite seu email
                             </div>
                         </div>
 
-                        <div className='col-md-12 mt-1'>
-                            {/* comentario */}
-                            <label
-                                htmlFor='senha'
-                                className='form-label'
-                            >
+                        <div className='mb-3'>
+                            <label htmlFor='senha' className='form-label'>
                                 Senha
                             </label>
                             <input
@@ -138,24 +113,17 @@ export default function Login() {
                                 id='senha'
                                 required
                             />
-                            <div
-                                className='invalid-feedback'
-                            >
+                            <div className='invalid-feedback'>
                                 Por favor digite sua senha
                             </div>
                         </div>
 
-                        <div
-                            className='col-md-12 mt-3'
+                        <button
+                            className='btn btn-primary w-100'
+                            type='submit'
                         >
-                            <button
-                                className='btn btn-primary w-100'
-                                type='submit'
-                                id='botao'
-                            >
-                                Enviar
-                            </button>
-                        </div>
+                            Enviar
+                        </button>
                     </form>
                 </div>
             </div>

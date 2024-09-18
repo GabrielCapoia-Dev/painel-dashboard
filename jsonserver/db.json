@@ -3,9 +3,23 @@
         {
             "id": 1,
             "email": "admin@gmail.com",
-            "password":"$2a$10$Y4/4ws04wYotZQg2RB1bwurp7W6RCq.NLrUEEONlOZEdjLXCVG/LW",
+            "password": "$2a$10$Y4/4ws04wYotZQg2RB1bwurp7W6RCq.NLrUEEONlOZEdjLXCVG/LW",
             "nome": "Admin",
             "permissoes": "admin"
+        },
+        {
+            "id": 2,
+            "email": "user1@gmail.com",
+            "password": "user123",
+            "nome": "User One",
+            "permissoes": "user"
+        },
+        {
+            "id": 3,
+            "email": "user2@gmail.com",
+            "password": "user123",
+            "nome": "User Two",
+            "permissoes": "user"
         }
     ]
 }

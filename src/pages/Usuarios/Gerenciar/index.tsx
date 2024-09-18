@@ -25,7 +25,7 @@ export default function GerenciarUsuarios() {
     // Inicio, Update State, Destruir
     useEffect(() => {
 
-        let lsStorage = localStorage.getItem('americanos.token')
+        let lsStorage = localStorage.getItem('casaDaPaz.token')
 
         let token: IToken | null = null
 

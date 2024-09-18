@@ -1,25 +1,20 @@
-import { ReactNode } from 'react'
-import { Link } from 'react-router-dom'
-import { IToken } from '../../interfaces/token'
+import { ReactNode } from 'react';
+import { Link } from 'react-router-dom';
+import { IToken } from '../../interfaces/token';
+import styles from './styles.module.css';
 
 interface IProps {
-    children: ReactNode
-    token?: IToken | null
+    children: ReactNode;
+    token?: IToken | null;
 }
 
 export const LayoutDashboard = (props: IProps) => {
 
-
-
     return (
         <>
-
-            <header
-                className="navbar navbar-dark sticky-top bg-dark flex-md-nowrap p-0"
-            >
-                <a className="navbar-brand col-md-3 col-lg-2 me-0 px-3"
-                    href="#">
-                    Sistema Autenticação
+            <header className={styles.header}>
+                <a className={styles.brand} href="/dashboard">
+                    Sistema Casa da Paz
                 </a>
                 <button
                     className="navbar-toggler position-absolute d-md-none collapsed"
@@ -45,17 +40,17 @@ export const LayoutDashboard = (props: IProps) => {
                 <div className="row">
                     <nav
                         id="sidebarMenu"
-                        className="col-md-3 col-lg-2 d-md-block bg-light sidebar collapse"
+                        className={`${styles.sidebar} col-md-3 col-lg-2 d-md-block bg-light sidebar collapse`}
                     >
                         <div className="position-sticky pt-3">
                             <ul className="nav flex-column">
                                 <li className="nav-item">
-                                    <Link className={`nav-link`} to={'/dashboard'}>
-                                        Dashboard
+                                    <Link className={styles.menuLink} to={'/dashboard'}>
+                                        Home
                                     </Link>
                                 </li>
                                 <li className="nav-item">
-                                    <Link className={`nav-link`} to={'/usuarios'}>
+                                    <Link className={styles.menuLink} to={'/usuarios'}>
                                         Usuários
                                     </Link>
                                 </li>
@@ -63,16 +58,12 @@ export const LayoutDashboard = (props: IProps) => {
                         </div>
                     </nav>
 
-
-                    <main
-                        className="col-md-9 ms-sm-auto col-lg-10 px-md-4"
-                    >
+                    <main className="col-md-9 ms-sm-auto col-lg-10 px-md-4">
                         {props.children}
-
                     </main>
 
                 </div>
             </div>
         </>
-    )
+    );
 }
