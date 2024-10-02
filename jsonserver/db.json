@@ -1,25 +1,18 @@
 {
   "users": [
     {
-      "id": 1,
       "email": "admin@gmail.com",
-      "password": "$2a$10$5OIttWxnw6CH8xhVVw74XeJjnEKiqQqs0pfGrofq1pATs80B3k.kq",
+      "password": "$2a$10$VHZwUb3eICyWENxwQX7unu4XmMYCqVWL3WvSGeJfg6O22ncPeTX2m",
       "nome": "Admin",
-      "permissoes": "admin"
+      "permissoes": "admin",
+      "id": 1
     },
     {
-      "email": "teste@gmail.com",
-      "password": "$2a$10$EqhzM22EYJ8/MWERdlK20..tnHCGRteQrWqitFh6AnSYvpHOUMLq.",
-      "nome": "Zezin",
+      "nome": "Gabriel Teste",
+      "email": "gabrielteste@gmail.com",
       "permissoes": "colaborador",
+      "password": "$2a$10$vGZcI4.KUJdO1sGndEHvkufZ8P6o3OZmA4SrtaWZnnIqzqNpLoNVG",
       "id": 2
-    },
-    {
-      "email": "julin123@gmail.com",
-      "password": "$2a$10$/9dnPWq8IQFX68UaWMeMzOMIuLaC2yT7wtkEarPTSCpcKPXIpiByu",
-      "nome": "Julio Cesar",
-      "permissoes": "colaborador",
-      "id": 3
     }
   ]
 }

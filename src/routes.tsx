@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard'
 import Usuarios from './pages/Usuarios'
 import Voluntarios from './pages/Voluntarios'
 import GerenciarUsuarios from './pages/Usuarios/Gerenciar'
+import Galeria from './pages/Galeria'
 
 
 
@@ -41,12 +42,17 @@ export const Rotas = () => {
                     element={<GerenciarUsuarios />}
                 />
 
-
                 <Route
-                    // Pagina de Voluntarios
-                    path='/valuntarios'
+                    path="/voluntarios"
                     element={<Voluntarios />}
                 />
+
+                <Route
+                    path="/galeria"
+                    element={<Galeria />}
+                />
+
+
 
             </Routes>
         </BrowserRouter>

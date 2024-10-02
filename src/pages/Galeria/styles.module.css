@@ -1,0 +1,30 @@
+.input-group {
+    width: 100%; /* Ocupa toda a largura disponível */
+}
+
+.input-group .form-control {
+    border-radius: 0; /* Para alinhar com o ícone de pesquisa */
+}
+
+.btn {
+    background-color: transparent; /* Botão transparente */
+    border: none; /* Remover bordas */
+    transition: background-color 0.3s; /* Transição suave */
+}
+
+.btn:hover {
+    background-color: rgba(0, 0, 0, 0.1); /* Cor de fundo ao passar o mouse */
+}
+
+.btn-success {
+    color: green; /* Ícone de upload verde */
+}
+
+.btn-danger {
+    color: gray; /* Ícone de deletar cinza */
+}
+
+/* Adicione uma classe para mudar a cor do ícone de deletar quando um item estiver selecionado */
+.btn-danger.selected {
+    color: red; /* Muda para vermelho quando selecionado */
+}
