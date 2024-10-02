@@ -6,6 +6,9 @@ import {
 import Login from './pages/Login'
 import Dashboard from './pages/Dashboard'
 import Usuarios from './pages/Usuarios'
+import Voluntarios from './pages/Voluntarios'
+import GerenciarUsuarios from './pages/Usuarios/Gerenciar'
+
 
 
 export const Rotas = () => {
@@ -33,6 +36,17 @@ export const Rotas = () => {
                     element={<Usuarios />}
                 />
 
+                <Route
+                    path='/usuarios/:id'
+                    element={<GerenciarUsuarios />}
+                />
+
+
+                <Route
+                    // Pagina de Voluntarios
+                    path='/valuntarios'
+                    element={<Voluntarios />}
+                />
 
             </Routes>
         </BrowserRouter>

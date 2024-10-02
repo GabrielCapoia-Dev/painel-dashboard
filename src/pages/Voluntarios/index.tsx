@@ -15,7 +15,7 @@ interface IUsuarios {
     permissoes: string;
 }
 
-export default function Usuarios() {
+export default function Voluntarios() {
     const navigate = useNavigate();
     const [loading, setLoading] = useState(false);
     const [dadosUsuarios, setDadosUsuarios] = useState<Array<IUsuarios>>([]);

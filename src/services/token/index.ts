@@ -11,3 +11,16 @@ export const verificaTokenExpirado = (token?: string | null) => {
         return false
     }
 }
+
+
+export const validaPermissao = (
+    permissao: Array<string>,
+    permissaoToken?: string
+) => {
+    if (permissaoToken) {
+        const temAlgumaPermissao =
+            permissao.includes(permissaoToken)
+        return temAlgumaPermissao
+    }
+    return false
+}

@@ -1,7 +1,9 @@
-import { ReactNode } from 'react';
+import { ReactNode, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { IToken } from '../../interfaces/token';
 import styles from './styles.module.css';
+import { validaPermissao } from '../../services/token'
+
 
 interface IProps {
     children: ReactNode;
@@ -9,6 +11,19 @@ interface IProps {
 }
 
 export const LayoutDashboard = (props: IProps) => {
+
+    const [token, setToken] = useState<IToken>()
+
+    useEffect(() => {
+        let isToken = localStorage.getItem('casaDaPaz.token')
+
+        let token: IToken | undefined
+
+        if (typeof isToken === 'string') {
+            token = JSON.parse(isToken)
+            setToken(token)
+        }
+    })
 
     return (
         <>
@@ -49,9 +64,24 @@ export const LayoutDashboard = (props: IProps) => {
                                         Home
                                     </Link>
                                 </li>
+                                {
+                                    validaPermissao(
+                                        ['admin', 'secretario'],
+                                        token?.user.permissoes
+                                    ) &&
+                                    <li className="nav-item">
+                                        <Link
+                                            className={`nav-link`}
+                                            to={'/usuarios'}
+                                        >
+                                            Usuários
+                                        </Link>
+                                    </li>
+                                }
+
                                 <li className="nav-item">
-                                    <Link className={styles.menuLink} to={'/usuarios'}>
-                                        Usuários
+                                    <Link className={`nav-link`} to={'/voluntarios'}>
+                                        Voluntários
                                     </Link>
                                 </li>
                             </ul>
