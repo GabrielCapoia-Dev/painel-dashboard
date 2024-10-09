@@ -59,14 +59,14 @@ export const LayoutDashboard = (props: IProps) => {
                     >
                         <div className="position-sticky pt-3">
                             <ul className="nav flex-column">
-                                <li className="nav-item">
-                                    <Link className={styles.menuLink} to={'/dashboard'}>
+                            <li className="nav-item">
+                                    <Link className={`nav-link`} to={'/Dashboard'}>
                                         Home
                                     </Link>
                                 </li>
                                 {
                                     validaPermissao(
-                                        ['admin', 'secretario'],
+                                        ['admin'],
                                         token?.user.permissoes
                                     ) &&
                                     <li className="nav-item">
@@ -86,8 +86,20 @@ export const LayoutDashboard = (props: IProps) => {
                                 </li>
 
                                 <li className="nav-item">
+                                    <Link className={`nav-link`} to={'/projetos'}>
+                                        Projetos
+                                    </Link>
+                                </li>
+
+                                <li className="nav-item">
                                     <Link className={`nav-link`} to={'/voluntarios'}>
                                         Voluntários
+                                    </Link>
+                                </li>
+
+                                <li className="nav-item">
+                                    <Link className={`nav-link`} to={'/feedbacks'}>
+                                        Feedbacks
                                     </Link>
                                 </li>
                             </ul>

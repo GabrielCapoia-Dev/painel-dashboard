@@ -1,41 +1,22 @@
-.info-section, .gallery-section, .published-texts-section {
-    margin: 20px 0;
-}
-
-.gallery, .texts {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.card {
-    background: #f9f9f9;
-    border: 1px solid #ddd;
+.container {
+    background-color: #f8f9fa;
+    /* Fundo claro */
+    padding: 20px;
     border-radius: 8px;
-    overflow: hidden;
-    width: calc(33.333% - 20px); /* 3 cards por linha */
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    transition: transform 0.2s;
 }
 
-.card:hover {
-    transform: scale(1.05);
+h2 {
+    color: #007bff;
+    /* Azul escuro */
 }
 
-.card-image {
-    width: 100%;
-    height: auto;
+.btn-primary {
+    background-color: #28a745;
+    /* Verde claro */
+    border-color: #28a745;
 }
 
-.card-content {
-    padding: 10px;
-}
-
-.card-title {
-    font-size: 1.2em;
-    margin: 0;
-}
-
-.card-description {
-    color: #555;
+.list-group-item {
+    background-color: #fff;
+    /* Branco */
 }

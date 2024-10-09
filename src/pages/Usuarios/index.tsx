@@ -1,9 +1,8 @@
 import { useNavigate } from "react-router-dom";
 import { LayoutDashboard } from "../../components/LayoutDashboard";
 import { useEffect, useState, useRef } from "react";
-import { IToken } from "../../interfaces/token";
-import { validaPermissao, verificaTokenExpirado } from "../../services/token";
 import { Loading } from "../../components/Loading";
+import useAuth from "../../services/token/useAuth"; // Importe o hook
 import axios from "axios";
 import { FaUserPlus, FaEdit, FaTrash, FaFilter, FaSearch } from "react-icons/fa";
 import { Modal, Button } from "react-bootstrap";
@@ -17,8 +16,7 @@ interface IUsuarios {
 
 export default function Usuarios() {
     const navigate = useNavigate();
-    const [loading, setLoading] = useState(false);
-    const [dadosUsuarios, setDadosUsuarios] = useState<Array<IUsuarios>>([]);
+    const { loading, dadosUsuarios } = useAuth(); // Use o hook para obter loading e dados
     const [selecionaUsuario, setSelecionaUsuario] = useState<number | null>(null);
     const [searchTerm, setSearchTerm] = useState("");
     const [filter, setFilter] = useState("");
@@ -27,36 +25,6 @@ export default function Usuarios() {
     const [modalMessage, setModalMessage] = useState("");
 
     const tableRef = useRef<HTMLTableElement>(null); // Referência para a tabela
-
-    // Inicio, Update State, Destruir
-    useEffect(() => {
-        const lsStorage = localStorage.getItem("casaDaPaz.token");
-        let token: IToken | null = null;
-
-        if (typeof lsStorage === "string") {
-            token = JSON.parse(lsStorage);
-        }
-
-        if (!token || verificaTokenExpirado(token.accessToken)) {
-            navigate("/");
-        }
-
-        if (!validaPermissao(["admin", "secretarios"], token?.user.permissoes)) {
-            navigate("/dashboard");
-        }
-
-        setLoading(true);
-        axios
-            .get("http://localhost:3001/users")
-            .then((res) => {
-                setDadosUsuarios(res.data);
-                setLoading(false);
-            })
-            .catch((err) => {
-                setLoading(false);
-                console.log(err);
-            });
-    }, [navigate]);
 
     const filteredUsers = dadosUsuarios.filter((usuario) => {
         const matchesSearchTerm = usuario.nome
@@ -90,7 +58,6 @@ export default function Usuarios() {
     const handleDeleteConfirm = () => {
         if (selecionaUsuario) {
             axios.delete(`http://localhost:3001/users/${selecionaUsuario}`).then(() => {
-                setDadosUsuarios(dadosUsuarios.filter((user) => user.id !== selecionaUsuario));
                 setSelecionaUsuario(null);
                 setShowModal(false);
             });
@@ -117,6 +84,10 @@ export default function Usuarios() {
         };
     }, []);
 
+    // Renderização do componente
+    if (loading) {
+        return <Loading />; // Use seu componente de Loading aqui
+    }
 
     return (
         <>

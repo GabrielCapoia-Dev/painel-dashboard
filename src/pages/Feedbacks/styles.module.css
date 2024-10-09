@@ -1,0 +1,24 @@
+/* src/pages/Feedbacks.module.css */
+.feedbacksContainer {
+    padding: 20px;
+}
+
+.cardContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px; /* Espaçamento entre os cards */
+}
+
+.card {
+    background-color: #fff; /* Fundo branco para os cards */
+    border: 1px solid #ddd; /* Borda leve */
+    border-radius: 5px; /* Cantos arredondados */
+    overflow: hidden; /* Para esconder parte da imagem se exceder */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Sombra leve */
+    text-align: center; /* Centralizar texto */
+}
+
+.image {
+    width: 100%; /* Largura total do card */
+    height: auto; /* Manter proporção da imagem */
+}
